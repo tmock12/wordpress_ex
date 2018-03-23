@@ -1,5 +1,9 @@
 defmodule WordpressEx.Model.Post do
   @moduledoc """
+  Post struct
+
+  ## API Reference
+  https://developer.wordpress.org/rest-api/reference/posts/#schema
   """
   defstruct id: nil,
             date: nil,

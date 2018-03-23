@@ -5,6 +5,9 @@ defmodule WordpressEx.Client do
   @base_url Application.get_env(:wordpress_ex, :base_url, "")
   @http_client Application.get_env(:wordpress_ex, :http_client, HTTPoison)
 
+  @doc """
+  GET endpoint that returns a parsed response
+  """
   def get(path, params) do
     parsed_response(:get, path, "", [], params: params)
   end
