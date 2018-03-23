@@ -4,7 +4,7 @@
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+[Available in Hex](https://hex.pm/docs/publish), the package can be installed
 by adding `wordpress_ex` to your list of dependencies in `mix.exs`:
 
 ```elixir
@@ -15,7 +15,12 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/wordpress_ex](https://hexdocs.pm/wordpress_ex).
+and then configuring your endpoint in `config/config.exs`:
 
+```elixir
+config :wordpress_ex,
+  base_url: "http://demo.wp-api.org/wp-json/wp/v2"
+]
+```
+
+Documentation can be found at [https://hexdocs.pm/wordpress_ex](https://hexdocs.pm/wordpress_ex).
