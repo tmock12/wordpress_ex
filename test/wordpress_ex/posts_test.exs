@@ -8,4 +8,9 @@ defmodule WordpressEx.PostsTest do
       assert Enum.at(posts, 0).title.rendered == "Hello world!"
     end
   end
+
+  describe "find" do
+    post = WordpressEx.Posts.find(123)
+    assert post.title.rendered == "Hello world!"
+  end
 end
