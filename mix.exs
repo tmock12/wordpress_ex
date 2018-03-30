@@ -16,6 +16,7 @@ defmodule WordpressEx.MixProject do
       deps: deps(),
       package: package(),
       elixirc_paths: elixirc_paths(Mix.env()),
+      docs: docs(),
       source_url: "https://github.com/tmock12/wordpress_ex"
     ]
   end
@@ -41,6 +42,13 @@ defmodule WordpressEx.MixProject do
       maintainers: ["Taylor Mock"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/tmock12/wordpress_ex"}
+    ]
+  end
+
+  def docs do
+    [
+      extras: ["README.md"],
+      main: "readme"
     ]
   end
 

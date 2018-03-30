@@ -1,10 +1,12 @@
 defmodule WordpressEx.Model.Post do
   @moduledoc """
-  Post struct
+  Contains the attributes of a post from wordpress.
 
   ## API Reference
   https://developer.wordpress.org/rest-api/reference/posts/#schema
   """
+  @type t :: %__MODULE__{}
+
   defstruct id: nil,
             date: nil,
             date_gmt: nil,

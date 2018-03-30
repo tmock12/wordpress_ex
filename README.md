@@ -1,6 +1,6 @@
 # WordpressEx
 
-**TODO: Add description**
+A Wordpress REST V2 API wrapper
 
 ## Installation
 

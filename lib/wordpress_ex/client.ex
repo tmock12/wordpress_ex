@@ -1,7 +1,5 @@
 defmodule WordpressEx.Client do
-  @moduledoc """
-  API client for Wordpress REST API
-  """
+  @moduledoc false
   @base_url Application.get_env(:wordpress_ex, :base_url, "")
   @http_client Application.get_env(:wordpress_ex, :http_client, HTTPoison)
 

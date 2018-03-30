@@ -7,7 +7,7 @@ defmodule WordpressEx.Posts do
   @doc """
   Get a list of posts
 
-  ## Examples
+  ## Examples:
 
       WordpressEx.Posts.list()
       WordpressEx.Posts.list(page: 2, per_page: 3)
@@ -23,10 +23,10 @@ defmodule WordpressEx.Posts do
   @doc """
   Get a single post from id
 
-  ## Examples
+  ## Examples:
 
-     WordpressEX.Posts.find(123)
-     WordpressEX.Posts.find(123, context: view)
+      WordpressEX.Posts.find(123)
+      WordpressEX.Posts.find(123, context: view)
 
   ## API Reference
   https://developer.wordpress.org/rest-api/reference/posts/#retrieve-a-post
