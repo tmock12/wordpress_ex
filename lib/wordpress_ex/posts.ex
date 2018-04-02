@@ -17,7 +17,7 @@ defmodule WordpressEx.Posts do
   """
   def list(opts \\ []) do
     get("/posts", opts)
-    |> post_struct
+    |> create_struct
   end
 
   @doc """
@@ -33,15 +33,26 @@ defmodule WordpressEx.Posts do
   """
   def find(id, opts \\ []) do
     get("/posts/#{id}", opts)
-    |> post_struct
+    |> create_struct
   end
 
-  defp post_struct(values) when is_list(values) do
-    values
-    |> Enum.map(&post_struct/1)
+  defp create_struct({:ok, values}) when is_list(values) do
+    structs =
+      values
+      |> Enum.map(&convert_struct/1)
+
+    {:ok, structs}
   end
 
-  defp post_struct(values) do
-    struct(WordpressEx.Model.Post, values)
+  defp create_struct({:ok, value}) do
+    {:ok, convert_struct(value)}
+  end
+
+  defp create_struct(error = {:error, _}) do
+    error
+  end
+
+  defp convert_struct(%{type: "post"} = value) do
+    struct(WordpressEx.Model.Post, value)
   end
 end

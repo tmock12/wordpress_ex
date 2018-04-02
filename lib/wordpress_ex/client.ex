@@ -7,13 +7,19 @@ defmodule WordpressEx.Client do
   GET endpoint that returns a parsed response
   """
   def get(path, params) do
-    parsed_response(:get, path, "", [], params: params)
+    response(:get, path, "", [], params: params)
+    |> parse
   end
 
-  defp parsed_response(method, path, body, headers, options) do
-    with {:ok, response} <- response(method, path, body, headers, options),
-         {:ok, parsed_json} <- parse_json(response.body) do
-      parsed_json
+  defp parse({:ok, %{status_code: 200} = response}) do
+    parse_json(response.body)
+  end
+
+  defp parse({_, response}) do
+    with {:ok, error_json} <- parse_json(response.body) do
+      {:error, error_json}
+    else
+      error -> {:error, error}
     end
   end
 
