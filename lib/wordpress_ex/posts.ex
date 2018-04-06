@@ -2,7 +2,8 @@ defmodule WordpressEx.Posts do
   @moduledoc """
   Wordpress Post endpoints
   """
-  import WordpressEx.Client
+  import WordpressEx.Client, only: [get: 2]
+  import WordpressEx.StructComposer, only: [compose: 2]
 
   @doc """
   Get a list of posts
@@ -17,7 +18,7 @@ defmodule WordpressEx.Posts do
   """
   def list(opts \\ []) do
     get("/posts", opts)
-    |> create_struct
+    |> compose(:post)
   end
 
   @doc """
@@ -33,26 +34,6 @@ defmodule WordpressEx.Posts do
   """
   def find(id, opts \\ []) do
     get("/posts/#{id}", opts)
-    |> create_struct
-  end
-
-  defp create_struct({:ok, values}) when is_list(values) do
-    structs =
-      values
-      |> Enum.map(&convert_struct/1)
-
-    {:ok, structs}
-  end
-
-  defp create_struct({:ok, value}) do
-    {:ok, convert_struct(value)}
-  end
-
-  defp create_struct(error = {:error, _}) do
-    error
-  end
-
-  defp convert_struct(%{type: "post"} = value) do
-    struct(WordpressEx.Model.Post, value)
+    |> compose(:post)
   end
 end
