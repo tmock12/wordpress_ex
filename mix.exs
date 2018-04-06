@@ -33,7 +33,8 @@ defmodule WordpressEx.MixProject do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:httpoison, "~> 1.0"},
-      {:jason, "~> 1.0"}
+      {:jason, "~> 1.0"},
+      {:mix_test_watch, "~> 0.5", only: :dev, runtime: false}
     ]
   end
 
