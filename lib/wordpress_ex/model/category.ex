@@ -25,7 +25,7 @@ defmodule WordpressEx.Model.Category do
               about: [
                 %{href: nil}
               ],
-              wp_post_type: [
+              "wp:post_type": [
                 %{href: nil}
               ],
               curies: [
