@@ -1,6 +1,6 @@
 defmodule WordpressEx.Categories do
   @moduledoc """
-  Wordpress Categorie endpoints
+  Wordpress Categories endpoints
   """
   import WordpressEx.Client, only: [get: 2]
   import WordpressEx.StructComposer, only: [compose: 2]
