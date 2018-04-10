@@ -24,4 +24,8 @@ defmodule WordpressEx.StructComposer do
   defp convert_struct(value, :category) do
     struct(WordpressEx.Model.Category, value)
   end
+
+  defp convert_struct(value, :tag) do
+    struct(WordpressEx.Model.Tag, value)
+  end
 end
