@@ -4,28 +4,16 @@ defmodule WordpressEx.StructComposer do
   def compose({:ok, values}, struct_name) when is_list(values) do
     structs =
       values
-      |> Enum.map(&convert_struct(&1, struct_name))
+      |> Enum.map(&struct(struct_name, &1))
 
     {:ok, structs}
   end
 
   def compose({:ok, value}, struct_name) do
-    {:ok, convert_struct(value, struct_name)}
+    {:ok, struct(struct_name, value)}
   end
 
   def compose(error = {:error, _}, _struct_name) do
     error
-  end
-
-  defp convert_struct(value, :post) do
-    struct(WordpressEx.Model.Post, value)
-  end
-
-  defp convert_struct(value, :category) do
-    struct(WordpressEx.Model.Category, value)
-  end
-
-  defp convert_struct(value, :tag) do
-    struct(WordpressEx.Model.Tag, value)
   end
 end

@@ -4,6 +4,7 @@ defmodule WordpressEx.Categories do
   """
   import WordpressEx.Client, only: [get: 2]
   import WordpressEx.StructComposer, only: [compose: 2]
+  alias WordpressEx.Model.Category
 
   @doc """
   Get a list of categories
@@ -18,7 +19,7 @@ defmodule WordpressEx.Categories do
   """
   def list(opts \\ []) do
     get("/categories", opts)
-    |> compose(:category)
+    |> compose(Category)
   end
 
   @doc """
@@ -34,6 +35,6 @@ defmodule WordpressEx.Categories do
   """
   def find(id, opts \\ []) do
     get("/categories/#{id}", opts)
-    |> compose(:category)
+    |> compose(Category)
   end
 end

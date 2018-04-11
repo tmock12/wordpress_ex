@@ -4,6 +4,7 @@ defmodule WordpressEx.Posts do
   """
   import WordpressEx.Client, only: [get: 2]
   import WordpressEx.StructComposer, only: [compose: 2]
+  alias WordpressEx.Model.Post
 
   @doc """
   Get a list of posts
@@ -18,7 +19,7 @@ defmodule WordpressEx.Posts do
   """
   def list(opts \\ []) do
     get("/posts", opts)
-    |> compose(:post)
+    |> compose(Post)
   end
 
   @doc """
@@ -34,6 +35,6 @@ defmodule WordpressEx.Posts do
   """
   def find(id, opts \\ []) do
     get("/posts/#{id}", opts)
-    |> compose(:post)
+    |> compose(Post)
   end
 end
