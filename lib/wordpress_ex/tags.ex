@@ -21,4 +21,20 @@ defmodule WordpressEx.Tags do
     get("/tags", opts)
     |> compose(Tag)
   end
+
+  @doc """
+  Get a single tag from id
+
+  ## Examples:
+
+      WordpressEX.Tags.find(123)
+      WordpressEX.Tags.find(123, context: "embed")
+
+  ## API Reference
+  https://developer.wordpress.org/rest-api/reference/itags/#retrieve-a-tag
+  """
+  def find(id, opts \\ []) do
+    get("/tags/#{id}", opts)
+    |> compose(Tag)
+  end
 end

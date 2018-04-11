@@ -8,4 +8,11 @@ defmodule WordpressEx.TagsTest do
       assert tag.name == "I'm a tag"
     end
   end
+
+  describe "find" do
+    test "returns found tag" do
+      {:ok, tag} = WordpressEx.Tags.find(123)
+      assert tag.name == "Tag Name"
+    end
+  end
 end
