@@ -21,4 +21,20 @@ defmodule WordpressEx.Pages do
     get("/pages", opts)
     |> compose(Page)
   end
+
+  @doc """
+  Get a single page from id
+
+  ## Examples:
+
+      WordpressEX.Pages.find(123)
+      WordpressEX.Pages.find(123, context: "edit")
+
+  ## API Reference
+  https://developer.wordpress.org/rest-api/reference/pages/#retrieve-a-page
+  """
+  def find(id, opts \\ []) do
+    get("/pages/#{id}", opts)
+    |> compose(Page)
+  end
 end
