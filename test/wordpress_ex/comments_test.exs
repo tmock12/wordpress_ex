@@ -8,4 +8,11 @@ defmodule WordpressEx.CommentsTest do
       assert comment.content.rendered == "<p>Hi, this is a comment</p>"
     end
   end
+
+  describe "find" do
+    test "returns found category" do
+      {:ok, comment = %WordpressEx.Model.Comment{}} = WordpressEx.Comments.find(123)
+      assert comment.content.rendered == "<p>Hello Comment</p>"
+    end
+  end
 end

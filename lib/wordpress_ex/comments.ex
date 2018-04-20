@@ -22,4 +22,20 @@ defmodule WordpressEx.Comments do
     get("/comments", opts)
     |> compose(Comment)
   end
+
+  @doc """
+  Get a single comment from id
+
+  ## Examples:
+
+      WordpressEX.Comments.find(123)
+      WordpressEX.Comments.find(123, context: "view")
+
+  ## API Reference
+  https://developer.wordpress.org/rest-api/reference/comments/#retrieve-a-comment
+  """
+  def find(id, opts \\ []) do
+    get("/comments/#{id}", opts)
+    |> compose(Comment)
+  end
 end
