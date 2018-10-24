@@ -7,7 +7,7 @@ defmodule WordpressEx.Users do
   alias WordpressEx.Model.User
 
   @doc """
-  Get a list of categories
+  Get a list of users
 
   ## Examples:
 
