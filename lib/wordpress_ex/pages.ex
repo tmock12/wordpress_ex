@@ -2,7 +2,7 @@ defmodule WordpressEx.Pages do
   @moduledoc """
   Wordpress Page endpoints
   """
-  import WordpressEx.Client, only: [get: 2]
+  import WordpressEx.Client, only: [get: 2, post: 2]
   import WordpressEx.StructComposer, only: [compose: 2]
   alias WordpressEx.Model.Page
 
