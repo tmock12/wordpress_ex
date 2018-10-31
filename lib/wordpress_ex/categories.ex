@@ -34,7 +34,7 @@ defmodule WordpressEx.Categories do
   https://developer.wordpress.org/rest-api/reference/categories/#retrieve-a-category
   """
   def find(id, opts \\ []) do
-    get("/categories/#{id}", opts)
+    post("/categories/#{id}", opts)
     |> compose(Category)
   end
 end

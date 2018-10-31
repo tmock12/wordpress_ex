@@ -34,7 +34,7 @@ defmodule WordpressEx.Posts do
   https://developer.wordpress.org/rest-api/reference/posts/#retrieve-a-post
   """
   def find(id, opts \\ []) do
-    get("/posts/#{id}", opts)
+    post("/posts/#{id}", opts)
     |> compose(Post)
   end
 end

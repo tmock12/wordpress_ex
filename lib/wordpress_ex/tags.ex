@@ -34,7 +34,7 @@ defmodule WordpressEx.Tags do
   https://developer.wordpress.org/rest-api/reference/itags/#retrieve-a-tag
   """
   def find(id, opts \\ []) do
-    get("/tags/#{id}", opts)
+    post("/tags/#{id}", opts)
     |> compose(Tag)
   end
 end

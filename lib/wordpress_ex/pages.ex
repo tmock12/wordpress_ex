@@ -34,7 +34,7 @@ defmodule WordpressEx.Pages do
   https://developer.wordpress.org/rest-api/reference/pages/#retrieve-a-page
   """
   def find(id, opts \\ []) do
-    get("/pages/#{id}", opts)
+    post("/pages/#{id}", opts)
     |> compose(Page)
   end
 end

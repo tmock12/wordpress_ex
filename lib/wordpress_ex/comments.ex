@@ -35,7 +35,7 @@ defmodule WordpressEx.Comments do
   https://developer.wordpress.org/rest-api/reference/comments/#retrieve-a-comment
   """
   def find(id, opts \\ []) do
-    get("/comments/#{id}", opts)
+    post("/comments/#{id}", opts)
     |> compose(Comment)
   end
 end
