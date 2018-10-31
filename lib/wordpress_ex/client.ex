@@ -23,7 +23,7 @@ defmodule WordpressEx.Client do
       _ -> [params: params, hackney: [basic_auth: {@http_user, @http_pass}]]
     end
 
-    response(:post, path, "", [], params: params)
+    response(:post, path, "", [], params)
     |> parse
   end
 
