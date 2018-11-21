@@ -2,7 +2,7 @@ defmodule WordpressEx.Pages do
   @moduledoc """
   Wordpress Page endpoints
   """
-  import WordpressEx.Client, only: [get: 2, post: 2]
+  import WordpressEx.Client, only: [get: 2]
   import WordpressEx.StructComposer, only: [compose: 2]
   alias WordpressEx.Model.Page
 
@@ -34,7 +34,7 @@ defmodule WordpressEx.Pages do
   https://developer.wordpress.org/rest-api/reference/pages/#retrieve-a-page
   """
   def find(id, opts \\ []) do
-    post("/pages/#{id}", opts)
+    get("/pages/#{id}", opts)
     |> compose(Page)
   end
 end

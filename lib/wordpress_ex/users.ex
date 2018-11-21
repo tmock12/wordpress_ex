@@ -2,7 +2,7 @@ defmodule WordpressEx.Users do
   @moduledoc """
   Wordpress User endpoints
   """
-  import WordpressEx.Client, only: [get: 2, post: 2]
+  import WordpressEx.Client, only: [get: 2]
   import WordpressEx.StructComposer, only: [compose: 2]
   alias WordpressEx.Model.User
 
@@ -34,7 +34,7 @@ defmodule WordpressEx.Users do
   https://developer.wordpress.org/rest-api/reference/users/#retrieve-a-user
   """
   def find(id, opts \\ []) do
-    post("/users/#{id}", opts)
+    get("/users/#{id}", opts)
     |> compose(User)
   end
 end

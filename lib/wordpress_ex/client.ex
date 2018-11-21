@@ -10,20 +10,12 @@ defmodule WordpressEx.Client do
   GET endpoint that returns a parsed response
   """
   def get(path, params) do
-    response(:get, path, "", [], params: params)
-    |> parse
-  end
-
-  @doc """
-  POST endpoint that returns a parsed response
-  """
-  def post(path, params) do
     params = case @http_user do
       nil -> [params: params]
       _ -> [params: params, hackney: [basic_auth: {@http_user, @http_pass}]]
     end
 
-    response(:post, path, "", [], params)
+    response(:get, path, "", [], params)
     |> parse
   end
 

@@ -2,7 +2,7 @@ defmodule WordpressEx.Categories do
   @moduledoc """
   Wordpress Categories endpoints
   """
-  import WordpressEx.Client, only: [get: 2, post: 2]
+  import WordpressEx.Client, only: [get: 2]
   import WordpressEx.StructComposer, only: [compose: 2]
   alias WordpressEx.Model.Category
 
@@ -34,7 +34,7 @@ defmodule WordpressEx.Categories do
   https://developer.wordpress.org/rest-api/reference/categories/#retrieve-a-category
   """
   def find(id, opts \\ []) do
-    post("/categories/#{id}", opts)
+    get("/categories/#{id}", opts)
     |> compose(Category)
   end
 end

@@ -2,7 +2,7 @@ defmodule WordpressEx.Posts do
   @moduledoc """
   Wordpress Post endpoints
   """
-  import WordpressEx.Client, only: [get: 2, post: 2]
+  import WordpressEx.Client, only: [get: 2]
   import WordpressEx.StructComposer, only: [compose: 2]
   alias WordpressEx.Model.Post
 
@@ -34,7 +34,7 @@ defmodule WordpressEx.Posts do
   https://developer.wordpress.org/rest-api/reference/posts/#retrieve-a-post
   """
   def find(id, opts \\ []) do
-    post("/posts/#{id}", opts)
+    get("/posts/#{id}", opts)
     |> compose(Post)
   end
 end

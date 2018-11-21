@@ -3,7 +3,7 @@ defmodule WordpressEx.Comments do
   Wordpress Comment endpoints
   """
 
-  import WordpressEx.Client, only: [get: 2, post: 2]
+  import WordpressEx.Client, only: [get: 2]
   import WordpressEx.StructComposer, only: [compose: 2]
   alias WordpressEx.Model.Comment
 
@@ -35,7 +35,7 @@ defmodule WordpressEx.Comments do
   https://developer.wordpress.org/rest-api/reference/comments/#retrieve-a-comment
   """
   def find(id, opts \\ []) do
-    post("/comments/#{id}", opts)
+    get("/comments/#{id}", opts)
     |> compose(Comment)
   end
 end
