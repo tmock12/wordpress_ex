@@ -1,13 +1,21 @@
 defmodule WordpressEx.Client do
+  require IEx
   @moduledoc false
   @base_url Application.get_env(:wordpress_ex, :base_url, "")
   @http_client Application.get_env(:wordpress_ex, :http_client, HTTPoison)
+  @http_user Application.get_env(:wordpress_ex, :http_user, nil)
+  @http_pass Application.get_env(:wordpress_ex, :http_pass, nil)
 
   @doc """
   GET endpoint that returns a parsed response
   """
   def get(path, params) do
-    response(:get, path, "", [], params: params)
+    params = case @http_user do
+      nil -> [params: params]
+      _ -> [params: params, hackney: [basic_auth: {@http_user, @http_pass}]]
+    end
+
+    response(:get, path, "", [], params)
     |> parse
   end
 
